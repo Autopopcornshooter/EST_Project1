@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Youtube</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="youtube_home_design.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div id="left">
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="btn" href="https://www.youtube.com/">
+            <img src="" alt="youtube logo">
+        </a>
+    </div>
+    <div id="center">
+        <div class="container">
+        <form class="row g-1" action="/submit" method="get" enctype="multipart/form-data" id="search-form">
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색" style=" align-items: center;">
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-dark" id="search-btn">⌕</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-dark" id="record-btn">🎙️</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <div id="right">
+        <button type="button" class="btn btn-dark" id="create-content-btn">+만들기</button>
+        <button type="button" class="btn btn-dark" id="notice-btn">
+            <img src="https://img.icons8.com/ios7/600/FFFFFF/appointment-reminders.png" alt="alarm" style="width:20px;">
+        </button>
+        <button type="button" class="btn btn-secondary" id="account-btn"></button>
+
+    </div>
+
+
+
+</nav>
+
+
+<script src="tech.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+</html>

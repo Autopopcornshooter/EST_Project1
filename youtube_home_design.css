@@ -6,13 +6,13 @@
 #search-form {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 #center {
 
     width: 60%;
     display: flex;
-    
     justify-content: center;
     align-items: center;
 

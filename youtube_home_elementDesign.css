@@ -1,0 +1,125 @@
+.category {
+    margin-right: 1rem;
+    height: 2rem;
+    font-size: small;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #212529;
+    color: white;
+
+}
+
+.category.active {
+    background-color: white;
+    color: black;
+}
+
+.category:hover {
+    background-color: #212529;
+    color: white;
+}
+
+.sidebar-btnList {
+    background-color: black !important;
+    text-align: left;
+    width: 100%;
+    border: none;
+}
+
+.sidebar-btnList:hover {
+    background-color: #212529 !important;
+}
+
+
+#notice-btn {
+    background-color: black !important;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+
+}
+
+#notice-btn:hover {
+    background-color: #212529 !important;
+}
+
+#account-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#create-content-btn {
+    height: 40px;
+    border-radius: 999px;
+}
+
+#alarm-img {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+}
+
+#record-btn {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+}
+
+#search-bar {
+    background-color: black;
+    border-color: #444;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+    color: white;
+}
+
+#search-bar::placeholder {
+    color: gray;
+}
+
+#search-btn {
+    border-color: #444;
+    width: 4rem;
+    font-size: large;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+}
+
+.channel-href {
+    position:relative;
+    z-index:2;
+    color: gray ;
+    font-style: normal ;
+    text-decoration: none;
+}
+
+.channel-href:hover {
+    color: white;
+}
+.card-title{
+    font-weight: bold;
+}
+.card-text{
+    color:gray;
+}
+.channel-icon{
+    width:2rem;
+    height:2rem;
+    border-radius: 999px;
+    background-size: cover;
+}
+.card-img-top{
+    border-radius: 10px;
+}

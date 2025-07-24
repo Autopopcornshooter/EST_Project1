@@ -6,48 +6,326 @@
     <title>Youtube</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="youtube_home_design.css">
+    <link rel="stylesheet" href="youtube_home_elementDesign.css">
+    <link rel="stylesheet" href="youtube_home_layoutDesign.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div id="left">
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="btn" href="https://www.youtube.com/">
-            <img src="" alt="youtube logo">
-        </a>
-    </div>
-    <div id="center">
-        <div class="container">
-        <form class="row g-1 " action="/submit" method="get" enctype="multipart/form-data" id="search-form">
-            <div class="col-md-6 ">
-                <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색" style=" align-items: center;">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
+        <div id="left">
+            <div class="nav-item ">
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-dark" id="search-btn">⌕</button>
+            <div class="nav-item">
+                <a class="btn" href="">
+                    <!--현재 주소 리다이렉트-->
+                    <img src="" alt="youtube logo">
+                </a>
             </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-dark" id="record-btn">🎙️</button>
+        </div>
+        <div id="center">
+            <div class="container">
+                <form class="row g-1 " action="/submit" method="get" enctype="multipart/form-data" id="search-form">
+                    <div class="col-md-6 ">
+                        <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색"
+                               style=" align-items: center;">
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-dark" id="search-btn">⌕</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-dark" id="record-btn">
+                            <span class="bi bi-mic-fill"></span>
+                        </button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+        <div id="right">
+            <div class="nav-item ">
+                <button class="btn btn-dark" id="create-content-btn">
+                    <span class="bi bi-plus-lg "></span>
+                    <span>만들기</span>
+                </button>
+            </div>
+            <div class="nav-item ">
+                <button class="btn btn-dark" id="notice-btn">
+                    <span class="bi bi-bell fs-5"></span>
+                </button>
+            </div>
+            <div class="nav-item ">
+                <button type="button" class="btn btn-secondary" id="account-btn"></button>
+            </div>
         </div>
     </div>
-    <div id="right">
-        <button type="button" class="btn btn-dark" id="create-content-btn">+만들기</button>
-        <button type="button" class="btn btn-dark" id="notice-btn">
-            <img src="https://img.icons8.com/ios7/600/FFFFFF/appointment-reminders.png" alt="alarm" style="width:20px;">
-        </button>
-        <button type="button" class="btn btn-secondary" id="account-btn"></button>
-
-    </div>
-
-
 
 </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top second-navbar">
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">전체</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">음악</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">게임</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">믹스</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">뉴스</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">라이브</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">최근에 업로드된 동영상</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">감상한 동영상</button>
+    <button type="button" class="btn  category" name="category" data-bs-toggle="button">새로운 맞춤 동영상</button>
+</nav>
+<div class="d-flex">
+    <div class="position-fixed top-0 start-0 vh-100 overflow-auto bg-dark" id="sidebar">
+        <ul class="nav flex-column gap-0" id="sidebar_listLayout">
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-home-btn">홈</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-shorts-btn">shorts</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-subscribed-btn">구독</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-youtubeMusic-btn">youtube music</button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList fw-bold fs-5" id="link-myPage-btn">내 페이지&nbsp;&nbsp;<span
+                        class="bi bi-chevron-right"></span></button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-watchedVideo-btn">시청 기록</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myPlaylist-btn">내 동영상</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myVideo-btn">내 영화</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-watchLater-btn">나중에 볼 동영상</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myLiked-btn">좋아요 표시한 동영상</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-offlineSaved-btn">오프라인 저장 동영상</button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100"><span class="fs-5 fw-bold" style="color:white; padding:12px;">구독</span></li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100"><span class="fs-5 fw-bold" style="color:white; padding:12px;">탐색</span></li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">인기 급상승</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">쇼핑</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">음악</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">영화</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">실시간</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">게임</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">스포츠</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">학습 프로그램</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">팟캐스트</button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100"><span class="fs-5 fw-bold" style="color:white; padding:12px;">YouTube 더보기</span>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">YouTube 스튜디오</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">YouTube Music</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">YouTube Kids</button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">설정</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">신고 기록</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">고객센터</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">의견 보내기</button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
 
+
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- 여기에 메인 콘텐츠 작성 -->
+    </div>
+</div>
+<div class="container" id="contentArea">
+    <div class="row row-cols-3">
+        <div class="col">
+            <div class="card content-card" style="position: relative; z-index:0; pointer-events:none;">
+                <img src="https://img.youtube.com/vi/_H2K71sL4tU/maxresdefault.jpg" class="card-img-top"
+                     alt="thumbnail">
+                <div class="card-body content-card-body">
+                    <div class="row row-cols-3 g-0" style="width:100%">
+                        <div class="col" style="width:13%">
+                            <a href="" class="channel-href">
+                                <img src="https://yt3.ggpht.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s48-c-k-c0x00ffffff-no-rj"
+                                     alt="channel icon" class="channel-icon">
+                            </a>
+                        </div>
+
+                        <div class="col" style="width:87%; line-height: 20px; ">
+                            <span class="card-title" style="color:white;">Sample</span><br>
+                            <a href="" class="channel-href">
+                                sample channelName</a>
+                            <p class="card-text ">
+                                <span class="view-count" style="font-size:14px;">조회수 31만회</span>
+                                <span class="bi bi-dot" style="font-size:14px;"></span>
+                                <span class="update-time" style="font-size:14px;">11개월 전</span>
+                            </p>
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card content-card">
+                <img src="https://img.youtube.com/vi/_H2K71sL4tU/maxresdefault.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <div class="row row-cols-2">
+                        <div class="col-md-2">
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href channel-icon">
+                                <img src="https://yt3.ggpht.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s48-c-k-c0x00ffffff-no-rj"
+                                     alt="thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="card-title">Sample</h5>
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href">sample
+                                channelName</a>
+                            <p class="card-text">
+                                <span class="view-count">조회수 31만회</span>
+                                <span class="bi bi-dot"></span>
+                                <span class="update-time">11개월 전</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card content-card">
+                <img src="https://img.youtube.com/vi/_H2K71sL4tU/maxresdefault.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <div class="row row-cols-2">
+                        <div class="col-md-2">
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href channel-icon">
+                                <img src="https://yt3.ggpht.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s48-c-k-c0x00ffffff-no-rj"
+                                     alt="thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="card-title">Sample</h5>
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href">sample
+                                channelName</a>
+                            <p class="card-text">
+                                <span class="view-count">조회수 31만회</span>
+                                <span class="bi bi-dot"></span>
+                                <span class="update-time">11개월 전</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card content-card">
+                <img src="https://img.youtube.com/vi/_H2K71sL4tU/maxresdefault.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <div class="row row-cols-2">
+                        <div class="col-md-2">
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href channel-icon">
+                                <img src="https://yt3.ggpht.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s48-c-k-c0x00ffffff-no-rj"
+                                     alt="thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="card-title">Sample</h5>
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href">sample
+                                channelName</a>
+                            <p class="card-text">
+                                <span class="view-count">조회수 31만회</span>
+                                <span class="bi bi-dot"></span>
+                                <span class="update-time">11개월 전</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card content-card">
+                <img src="https://img.youtube.com/vi/_H2K71sL4tU/maxresdefault.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <div class="row row-cols-2">
+                        <div class="col-md-2">
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href channel-icon">
+                                <img src="https://yt3.ggpht.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s48-c-k-c0x00ffffff-no-rj"
+                                     alt="thumbnail">
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="card-title">Sample</h5>
+                            <a href="https://www.youtube.com/@FindoutRecords" class="channel-href">sample
+                                channelName</a>
+                            <p class="card-text">
+                                <span class="view-count">조회수 31만회</span>
+                                <span class="bi bi-dot"></span>
+                                <span class="update-time">11개월 전</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="tech.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

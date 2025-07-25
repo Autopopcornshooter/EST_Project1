@@ -29,16 +29,15 @@
             </div>
         </div>
         <div id="center">
-            <div class="container">
+            <div style="width:100%;">
                 <form class="row g-1 " action="/submit" method="get" enctype="multipart/form-data" id="search-form">
-                    <div class="col-md-6 ">
-                        <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색"
-                               style=" align-items: center;">
+                    <div class="col-md-7 gx-0">
+                        <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색">
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto gx-0">
                         <button type="button" class="btn btn-dark" id="search-btn">⌕</button>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto gx-4">
                         <button type="button" class="btn btn-dark" id="record-btn">
                             <span class="bi bi-mic-fill"></span>
                         </button>
@@ -192,7 +191,7 @@
         <!-- 여기에 메인 콘텐츠 작성 -->
     </div>
 </div>
-<div class="container" id="contentArea">
+<div  id="contentArea">
     <div class="row row-cols-3">
         <div class="col">
             <div class="card content-card" style="position: relative; z-index:0; pointer-events:none;">

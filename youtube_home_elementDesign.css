@@ -69,7 +69,6 @@
 
 #record-btn {
     display: flex;
-
     justify-content: center;
     align-items: center;
     width: 40px;
@@ -79,10 +78,12 @@
 
 #search-bar {
     background-color: black;
+    height:40px;
     border-color: #444;
     border-top-left-radius: 999px;
     border-bottom-left-radius: 999px;
     color: white;
+    align-items: center;
 }
 
 #search-bar::placeholder {
@@ -92,6 +93,7 @@
 #search-btn {
     border-color: #444;
     width: 4rem;
+    height:40px;
     font-size: large;
     border-top-right-radius: 999px;
     border-bottom-right-radius: 999px;

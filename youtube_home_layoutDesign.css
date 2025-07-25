@@ -11,12 +11,12 @@ body {
 }
 #contentArea{
     box-sizing: border-box;
-    width:100%;
     margin-top: 7rem;
     margin-left:15rem;
     margin-right:0rem;
     padding-top: 2rem;
     padding-left:2rem;
+    padding-right:2rem;
 }
 .navbar {
     background-color: black !important;
@@ -69,6 +69,7 @@ body {
 
 #search-form {
     display: flex;
+    width:100%;
     align-items: center;
     justify-content: center;
 }

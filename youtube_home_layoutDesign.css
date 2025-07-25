@@ -12,7 +12,7 @@ body {
 #contentArea{
     box-sizing: border-box;
     margin-top: 7rem;
-    margin-left:15rem;
+    margin-left:17rem;
     margin-right:0rem;
     padding-top: 2rem;
     padding-left:2rem;
@@ -20,14 +20,14 @@ body {
 }
 .navbar {
     background-color: black !important;
-    padding-left: 1rem;
+    padding-left: 0rem;
     padding-right: 1rem;
     height: 4rem;
     z-index: 30;
 }
 .second-navbar {
     margin-top: 4rem;
-    margin-left: 15rem;
+    margin-left: 17rem;
     z-index: 10;
     height: 3rem;
     padding-left: 1rem;
@@ -36,7 +36,7 @@ body {
     background-color: black !important;
     display: inline-flex;
     position: fixed;
-    width: 15rem;
+    width: 17rem;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 4rem;
@@ -64,7 +64,7 @@ body {
     align-items: start;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 15rem;
+    width: 17rem;
 }
 
 #search-form {
@@ -76,7 +76,7 @@ body {
 
 #center {
 
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,21 +85,28 @@ body {
 
 #left {
     display: flex;
-    width: 30%;
+    width: 25%;
     justify-content: left;
     align-items: center;
 }
 
 #right {
     display: flex;
-    width: 40%;
+    width: 25%;
     justify-content: right;
     align-items: center;
 }
 
 
 .content-card{
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     border: none;
     background-color: black;
+}
+.content-card:hover{
+     top:-2.5%;
+    left:-2.5%;
+    width:105%;
+    
+    width:105%;
 }

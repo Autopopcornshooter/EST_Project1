@@ -21,13 +21,26 @@
 
 .sidebar-btnList {
     background-color: black !important;
+    display: flex;
     text-align: left;
+    align-items: center;
     width: 100%;
+    height:3rem;
     border: none;
+    border-radius: 10px;
 }
 
 .sidebar-btnList:hover {
     background-color: #212529 !important;
+}
+.sidebar-logo{
+    font-size: 20px;
+    margin-right: 2rem;
+}
+.sidebar-img{
+    width:1.5rem;
+    height:auto;
+    background-size:contain;
 }
 
 
@@ -78,7 +91,7 @@
 
 #search-bar {
     background-color: black;
-    height:40px;
+    height: 40px;
     border-color: #444;
     border-top-left-radius: 999px;
     border-bottom-left-radius: 999px;
@@ -91,37 +104,104 @@
 }
 
 #search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-color: #444;
     width: 4rem;
-    height:40px;
+    height: 40px;
     font-size: large;
     border-top-right-radius: 999px;
     border-bottom-right-radius: 999px;
 }
 
 .channel-href {
-    position:relative;
-    z-index:2;
-    color: gray ;
-    font-style: normal ;
+    z-index: 2;
+    position: relative;
+    color: gray;
+    font-style: normal;
     text-decoration: none;
 }
 
 .channel-href:hover {
     color: white;
 }
-.card-title{
+
+.content-btn {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.content-btn:hover{
+    top:-2.5%;
+    left:-2.5%;
+    width:105%;
+    height:105%;
+}
+
+.card-title {
     font-weight: bold;
 }
-.card-text{
-    color:gray;
+
+.card-text {
+    color: gray;
 }
-.channel-icon{
-    width:2rem;
-    height:2rem;
+
+.channel-icon {
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 999px;
     background-size: cover;
 }
-.card-img-top{
+
+.card-img-top {
     border-radius: 10px;
+}
+
+.card-option {
+    z-index: 2;
+    position: absolute;
+    right: -1rem;
+    bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+}
+
+.card-option:hover {
+    color: white;
+}
+
+.card-option:active {
+    color: white !important;
+    border-color: #212529 !important;
+    background-color: #212529 !important;
+}
+.sidebar-toggle{
+    background-color: black;
+    border-color:black;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:2.5rem;
+    height:2.5rem;
+    border-radius: 999px;
+    font-size:25px;
+}
+.sidebar-toggle:hover{
+    background-color:#212529 ;
+    border-color:#212529;
+}
+#youtube-logo-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:40px;
 }

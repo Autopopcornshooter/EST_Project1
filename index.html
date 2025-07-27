@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Youtube</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="youtube_home_elementDesign.css">
+    <link rel="stylesheet" href="youtube_home_layoutDesign.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
+            <div id="left">
+                <div class="nav-item ">
+                    <button class="btn btn-dark sidebar-toggle" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="bi bi-list" style="font-size:inherit"></span>
+                    </button>
+                </div>
+                <div class="nav-item">
+                    <a class="btn" href="" id="youtube-logo-btn">
+                        <!--현재 주소 리다이렉트-->
+                        <img src="https://i.ibb.co/6RMLwjV1/youtube-Logo.jpg" alt="youtube logo"
+                            style="width:100%; height:auto;">
+                    </a>
+                </div>
+            </div>
+            <div id="center">
+                <div style="width:100%;">
+                    <form class="row g-1 " method="get" enctype="multipart/form-data" id="search-form">
+                        <div class="col-md-7 gx-0">
+                            <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색">
+                        </div>
+                        <div class="col-auto gx-0">
+                            <button type="button" class="btn btn-dark" id="search-btn">
+                                <span class="bi bi-search"></span>
+                            </button>
+                        </div>
+                        <div class="col-auto gx-4">
+                            <button type="button" class="btn btn-dark" id="record-btn">
+                                <span class="bi bi-mic-fill"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="right">
+                <div class="nav-item ">
+                    <button class="btn btn-dark" id="create-content-btn">
+                        <span class="bi bi-plus-lg "></span>
+                        <span>만들기</span>
+                    </button>
+                </div>
+                <div class="nav-item ">
+                    <button class="btn btn-dark" id="notice-btn">
+                        <span class="bi bi-bell fs-5"></span>
+                    </button>
+                </div>
+                <div class="nav-item ">
+                    <button type="button" class="btn btn-secondary" id="account-btn"></button>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    
+    <div class="d-flex position-fixed top-0 start-0 vh-100 overflow-auto bg-dark" id="sidebar">
+        <ul class="nav flex-column gap-0" id="sidebar_listLayout">
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-home-btn">
+                    <span class="bi bi-house-door-fill sidebar-logo"></span>홈
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-shorts-btn">
+                    <span class="bi bi-youtube sidebar-logo"></span>shorts
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-subscribed-btn">
+                    <span class="bi bi-collection-play sidebar-logo"></span>구독
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-youtubeMusic-btn">
+                    <span class="bi bi-play-circle-fill sidebar-logo"></span>youtube music
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList fw-bold fs-5" id="link-myPage-btn">내 페이지&nbsp;&nbsp;<span
+                        class="bi bi-chevron-right"></span></button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-watchedVideo-btn">
+                    <span class="bi bi-clock-history sidebar-logo"></span>시청 기록
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myPlaylist-btn">
+                    <span class="bi bi-music-note-list sidebar-logo"></span>재생목록
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myContent-btn">
+                    <span class="bi bi-play-btn sidebar-logo"></span>내 동영상
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myVideo-btn">
+                    <span class="bi bi-film sidebar-logo"></span>내 영화
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-watchLater-btn">
+                    <span class="bi bi-clock sidebar-logo"></span>나중에 볼 동영상
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-myLiked-btn">
+                    <span class="bi bi-hand-thumbs-up sidebar-logo"></span>좋아요 표시한 동영상
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList" id="link-offlineSaved-btn">
+                    <span class="bi bi-download sidebar-logo"></span>오프라인 저장 동영상
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100"><span class="fs-5 fw-bold" style="color:white; padding:12px;">구독</span></li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100"><span class="fs-5 fw-bold" style="color:white; padding:12px;">탐색</span></li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">인기 급상승</button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-bag-check sidebar-logo"></span>쇼핑
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-music-note-beamed sidebar-logo"></span>음악
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-film sidebar-logo"></span>영화
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-broadcast sidebar-logo"></span>실시간
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-controller sidebar-logo"></span>게임
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-trophy sidebar-logo"></span>스포츠
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-mortarboard sidebar-logo"></span>학습 프로그램
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-broadcast-pin sidebar-logo"></span>팟캐스트
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100"><span class="fs-5 fw-bold" style="color:white; padding:12px;">YouTube 더보기</span>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <img src="https://i.ibb.co/6Rt7TQYD/studio-logo.jpg" class="sidebar-logo sidebar-img"
+                        alt="studio-logo">YouTube
+                    스튜디오
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <img src="https://i.ibb.co/Qj3r4xHW/music-logo.jpg" class="sidebar-logo sidebar-img"
+                        alt="studio-logo">YouTube
+                    Music
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <img src="https://i.ibb.co/67xRHB7Z/kids-logo.jpg" class="sidebar-logo sidebar-img"
+                        alt="studio-logo">YouTube
+                    Kids
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-gear sidebar-logo"></span>설정
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-flag sidebar-logo"></span>신고 기록
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-question-circle sidebar-logo"></span>고객센터
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <button class="btn btn-dark sidebar-btnList">
+                    <span class="bi bi-envelope-exclamation sidebar-logo"></span>의견 보내기
+                </button>
+            </li>
+            <li class="nav-item w-100">
+                <hr style="border: none; height: 1px; background-color: #ccc;">
+            </li>
+
+
+        </ul>
+    </div>
+
+
+    <div class="row row-cols-3" id="contentArea">
+    </div>
+
+    <script src="tech.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

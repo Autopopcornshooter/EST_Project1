@@ -1,11 +1,14 @@
 .category {
-    margin-right: 1rem;
     height: 2rem;
+    white-space: nowrap;
     font-size: small;
     font-weight: bold;
     border-radius: 10px;
     background-color: #212529;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -182,7 +185,7 @@
     border-color: #212529 !important;
     background-color: #212529 !important;
 }
-.sidebar-toggle{
+.custom-btn{
     background-color: black;
     border-color:black;
     color:white;
@@ -192,9 +195,9 @@
     width:2.5rem;
     height:2.5rem;
     border-radius: 999px;
-    font-size:25px;
+    
 }
-.sidebar-toggle:hover{
+.custom-btn:hover{
     background-color:#212529 ;
     border-color:#212529;
 }
@@ -204,4 +207,10 @@
     align-items: center;
     width:150px;
     height:40px;
+}
+.round-btn{
+     display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
 }

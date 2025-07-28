@@ -11,12 +11,19 @@ body {
 }
 #contentArea{
     box-sizing: border-box;
-    margin-top: 7rem;
     margin-left:17rem;
     margin-right:0rem;
     padding-top: 2rem;
     padding-left:2rem;
     padding-right:2rem;
+}
+#videoArea{
+    box-sizing: border-box;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    padding-left:2rem;
+    padding-right:2rem;
+    justify-content: center;
 }
 .navbar {
     background-color: black !important;
@@ -42,23 +49,6 @@ body {
     padding-top: 4rem;
     z-index: 20;
 }
-#sidebar::-webkit-scrollbar {
-    width: 8px;
-    top: 80px;
-}
-
-#sidebar::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
-#sidebar::-webkit-scrollbar-thumb {
-    background: #444;
-    border-radius: 4px;
-}
-
-#sidebar::-webkit-scrollbar-thumb:hover {
-    background: #666;
-}
 #sidebar_listLayout {
     justify-content: left;
     align-items: start;
@@ -66,6 +56,46 @@ body {
     flex-wrap: nowrap;
     width: 17rem;
 }
+.scroll-vertical::-webkit-scrollbar {
+    width: 8px;
+    top: 80px;
+}
+
+.scroll-vertical::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.scroll-vertical::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+.scroll-vertical::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+
+.scroll-horizontal::-webkit-scrollbar {
+    width: 8px;
+    top: 80px;
+}
+
+.scroll-horizontal::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.scroll-horizontal::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+.scroll-horizontal::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+
+
+
+
+
 
 #search-form {
     display: flex;

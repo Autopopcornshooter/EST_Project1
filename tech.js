@@ -104,7 +104,6 @@ function load_listCard() {
         })
         .catch(err => console.error("불러오기 실패:", err));
 }
-
 load_playScreenLayout();
 
 //html 파일 코드 불러오기

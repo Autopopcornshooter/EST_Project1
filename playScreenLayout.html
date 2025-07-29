@@ -1,13 +1,74 @@
-<div class="row row-cols-2 d-flex" id="videoArea">
-    <div class="col" style="width:65%" id="content-playSide">
+<div class="row row-cols-2 d-flex" id="videoArea" style="max-width: 100%;">
+    <div class="col-lg-7 col-md-12" id="content-playSide"  >
         <div>
             <a style="display:inline-block; width:100%;aspect-ratio: 16/9; background-color:aqua;">
-
             </a>
+            <div class="row gap-3" style="box-sizing: border-box;" >
+                <h5 id="content-title" style="color: white;">SOMETHIN'FUNKY</h5>
+                <div class="d-flex gap-2" style=" height: 2.5rem; align-items: center;">
+                    <a href="https://www.youtube.com/@FindoutRecords">
+                        <img src="https://yt3.googleusercontent.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s160-c-k-c0x00ffffff-no-rj"
+                            class="icon"></a>
+                    <div style="display: inline-block; min-width: 7rem;">
+                        <a href="https://www.youtube.com/@FindoutRecords"
+                            style="color:white; text-decoration-line: none; font-weight: 500;">Findout Records</a>
+                        <br>
+                        <span style="color:gray; font-size: smaller;">구독자 8.76천명</span>
+                    </div>
+                    <a href="https://www.youtube.com/@FindoutRecords" class="btn round-btn btn-setting" id="subscribe-btn"
+                        style="margin-left:2rem;">
+                        구독</a>
+                    <div class="d-flex gap-2" style="margin-left: auto;" name="rightSide">
+                        <div class="d-flex gap-0">
+                            <a href="" class="btn btn-setting btn-dark bi bi-hand-thumbs-up"
+                                style="color:white; font-size: large; border-top-left-radius: 999px;border-bottom-left-radius: 999px; border-right-color: gray;"
+                                id="like-input">
+                                &nbsp;&nbsp;<span class="like-num" style="font-size: 1rem;">3.8만</span>
+                            </a>
+                            <a href="" class="btn btn-setting btn-dark bi bi-hand-thumbs-down"
+                                style="color:white; min-width: 4rem; font-size: large; border-top-right-radius: 999px;border-bottom-right-radius: 999px;"
+                                id="dislike-input">
+                            </a>
+                        </div>
+                        <a href="" class="btn btn-setting btn-dark round-btn bi bi-arrow-90deg-right">&nbsp;&nbsp;공유</a>
+                        <a href="" class="btn btn-setting btn-dark round-btn bi bi-download">&nbsp;&nbsp;오프라인 저장</a>
+                        <a href="" class="btn btn-setting btn-dark round-btn bi bi-scissors">&nbsp;&nbsp;클립</a>
+                        <a href="" class="btn btn-setting btn-dark round-btn bi bi-bookmark">&nbsp;&nbsp;저장</a>
+                        <a href="" class="btn btn-setting btn-dark round-btn bi bi-three-dots"></a>
+                    </div>
+                </div>
+                <a href=""
+                    style="height:7rem; box-sizing: border-box; border-radius: 10px; background-color: #292929; color:white; text-decoration-line: none; "></a>
+                <div class="col d-flex gap-5">
+                    <h4 style="color:white">댓글 24개</h4>
+                    <a href="" class="btn btn-setting "
+                        style="background-color: black; color:white; text-decoration-line: none; height:2rem; border-radius: 5px;">
+                        <i class="bi bi-filter-left fs-3"></i>&nbsp;&nbsp;정렬 기준
+                    </a>
+                </div>
+                
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="https://yt3.ggpht.com/a_J71DucErxPy5kQ3CGhVYmkpoim77YN9-1J76xrBm0eLpVtnVV4e3IFM-zj8x-VUYwiBxA3vg=s48-c-k-c0x00ffffff-no-rj"
+                            class="icon" alt="account icon img">
+                        <form action="/submit" method="post"  enctype="multipart/form-data" id="comments form" style="box-sizing: border-box; width:100%;">
+                            <input type="text" class="form-control" id="input-comment" >
+                            <div class="d-flex" style="margin-top: 1rem;">
+                                <a href="" class="btn custom-btn btn-dark round-btn bi bi-emoji-smile fs-5"></a>
+
+                                <div style="margin-left: auto;">
+                                    <a href="" class="btn btn-setting btn-black" style="border-radius: 999px;">취소</a>
+                                    <a href="" class="btn btn-setting btn-black" style="border-radius: 999px;">댓글</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                
+            </div>
         </div>
 
     </div>
-    <div class="col" style="width:25%;" id="content-listSide">
+    <div class="col-lg-3 " id="content-listSide" >
 
         <div class="row">
             <div class="d-flex" style="align-items: center;">
@@ -41,7 +102,7 @@
                         style="height:inherit; background-size:cover; aspect-ratio: 16/9; border-radius: 10px;">
 
                 </div>
-                <div class="col" >
+                <div class="col">
                     <h5 style="color: white; font-size:small;">SOMETHIN' FUNKY</h5>
                     <span class="card-text" style="font-size:smaller;">Findout Records</span><br>
                     <span class="card-text" style="font-size:smaller">조회수 31만회</span>
@@ -49,8 +110,8 @@
                     <span class="card-text" style="font-size:smaller">11개월 전</span>
                 </div>
             </div>
-            
+
 
         </div>
     </div>
-</div>>
+</div>

@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         else if(target.id==='content-btn'){
             event.preventDefault();
             console.log('영상 재생 페이지로 이동');
-            const dataContainer=target.closest(".content-card");
-            handlePlayScreenNavigation(dataContainer);
+            const object=target.closest(".content-card");
+            handlePlayScreenNavigation(object);
         }
     });
 });
@@ -51,10 +51,10 @@ async function handleHomeNavigation() {
     }
 }
 
-async function handlePlayScreenNavigation(element) {
+async function handlePlayScreenNavigation(object) {
     try {
         const module = await import("./pageLayout.js");
-        await module.getVideoPlayPage(element);
+        await module.getVideoPlayPage(object);
         console.log('영상 재생 페이지 로드 완료');
     } catch (error) {
         console.error('영상 재생 페이지 로드 실패:', error);

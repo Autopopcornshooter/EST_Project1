@@ -23,13 +23,13 @@ export async function getSubscribePage() {
     await load_subscribeLayout();
     await load_sidebar();
     await load_indexLayout();
-    renderingContentCards();
+   await renderingContentCards();
 
 }
 export async function getVideoPlayPage(video) {
     await getVideoData(video);
     document.getElementById("fetch-area").replaceChildren();
-    await load_playScreenLayout();
+    await load_playScreenLayout(video);
 }
 
 async function load_sidebar() {
@@ -49,9 +49,10 @@ async function load_subscribeLayout() {
     await waitForElement("#fetch-area");
 }
 
-async function load_playScreenLayout() {
+async function load_playScreenLayout(object) {
     await addElement('../layout/playScreenLayout.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
+    setVideoPageElement(object);
 }
 async function renderingContentCards(){
     fetch("../data/contentsData.json")
@@ -69,10 +70,20 @@ async function load_contentCard(videoData) {
 
     const cards=document.querySelectorAll(".video-card");
     const newCard=cards[cards.length-1];
-    await setVidioData(videoData, newCard);
+    await setContentData(videoData, newCard);
+    setContentCardElement(newCard);
+}
+async function load_listCard(videoData){
+    await addElement("../element/list-card.html", document.getElementById("content-listSide"));
+    await waitForElement("#content-listSide");
+
+    const cards=document.querySelectorAll(".video-card");
+    const newCard=cards[cards.length-1];
+    await setContentData(videoData, newCard);
+    setContentCardElement(newCard);
 }
 
-async function setVidioData(data, card){
+async function setContentData(data, card){
     card.dataset.imbedLink=data._imbedLink;
     card.dataset.thumbnail=data._thumbnail;
     card.dataset.channel=data._channel;
@@ -83,6 +94,27 @@ async function setVidioData(data, card){
     card.dataset.like=data._like;
     card.dataset.view=data._view;
     card.dataset.date=data._date;
+}
+async function setContentCardElement(object){
+    object.querySelector(".thumbnail").setAttribute("src",object.dataset.thumbnail);
+    object.querySelector(".channel-href").setAttribute("href", object.dataset.channel);
+    object.querySelector(".channel-icon").setAttribute("src",object.dataset.channelIcon);
+    object.querySelector(".content-title").innerHTML=object.dataset.title;
+    object.querySelector(".channel-name").innerHTML=object.dataset.channelName;
+    object.querySelector(".view-count").innerHTML=object.data.view;
+    object.querySelector(".update-time").innerHTML=formatRelativeTime(object.dataset.date);
+}
+async function setVideoPageElement(object){
+    object.getElementById("#iframe-area").setAttribute("src",object.dataset.imbedLink);
+    object.querySelector(".thumbnail").setAttribute("src",object.dataset.thumbnail);
+    object.querySelector(".channel-href").setAttribute("href", object.dataset.channel);
+    object.querySelector(".channel-icon").setAttribute("src",object.dataset.channelIcon);
+    object.querySelector(".content-title").innerHTML=object.dataset.title;
+    object.querySelector(".channel-name").innerHTML=object.dataset.channelName;
+    object.querySelector(".subscriber").innerHTML=object.dataset.subscriber;
+    object.querySelector(".like-count").innerHTML=object.dataset.like;
+    object.querySelector(".view-count").innerHTML=object.data.view;
+    object.querySelector(".update-time").innerHTML=formatRelativeTime(object.dataset.date);
 }
 async function load_listCard(videoData) {
     await addElement('../element/list-card.html', document.getElementById("content-list"));

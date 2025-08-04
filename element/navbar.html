@@ -1,56 +1,121 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
-            <div id="left">
-                <div class="nav-item ">
-                    <button class="btn btn-dark sidebar-toggle" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
-                        aria-label="Toggle navigation">
-                        <span class="bi bi-list" style="font-size:inherit"></span>
-                    </button>
+            <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
+                <div id="left">
+                    <div class="nav-item ">
+                        <a class="btn btn-dark custom-btn bi bi-list" style="font-size:25px;" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar"
+                            aria-label="Toggle navigation">
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="btn link-home-btn" href="../layout/index.html" id="youtube-logo-btn">
+                            <!--현재 주소 리다이렉트-->
+                            <img src="https://i.ibb.co/6RMLwjV1/youtube-Logo.jpg" alt="youtube logo"
+                                style="width:100%; height:auto;">
+                        </a>
+                    </div>
                 </div>
-                <div class="nav-item">
-                    <a class="btn" href="" id="youtube-logo-btn">
-                        <!--현재 주소 리다이렉트-->
-                        <img src="https://i.ibb.co/6RMLwjV1/youtube-Logo.jpg" alt="youtube logo"
-                            style="width:100%; height:auto;">
-                    </a>
+                <div id="center">
+                    <div style="width:100%;">
+                        <form class="row g-1 " method="get" enctype="multipart/form-data" id="search-form">
+                            <div class="col-md-7 gx-0">
+                                <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색">
+                            </div>
+                            <div class="col-auto gx-0">
+                                <button type="button" class="btn btn-dark" id="search-btn">
+                                    <span class="bi bi-search"></span>
+                                </button>
+                            </div>
+                            <div class="col-auto gx-4">
+                                <button type="button" class="btn btn-dark" id="record-btn">
+                                    <span class="bi bi-mic-fill"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="right">
+    
+                    <div class="dropdown">
+                        <a class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" role="button"
+                            id="create-content-btn" aria-expanded="false">
+                            <span class="bi bi-plus-lg "></span>
+                            <span>만들기</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item btn btn-dark bi bi-play-btn">&nbsp;&nbsp;동영상 업로드</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-broadcast">&nbsp;&nbsp;라이브 스트리밍 시작</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-pencil-square">&nbsp;&nbsp;게시물 작성</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                            role="button" id="notice-btn">
+                            <span class="bi bi-bell fs-5"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            <li class="d-flex dropdown-item-text" style="align-items: center;"> <span>알림</span><a
+                                    class="btn btn-setting bi bi-gear" style="color:white; margin-left:auto;"></a>
+                            </li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li class="dropdown-item-text">중요</li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li class="dropdown-item-text">알림 더보기</li>
+                        </ul>
+    
+                    </div>
+                    <div class="dropdown" data-bs-auto-close="false">
+                        <a class="btn icon dropdown-toggle" data-bs-toggle="dropdown" role="button"
+                            style="background-color: red;" id="account-btn" aria-expanded="false"></a>
+    
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            <li class="dropdown-item-text d-flex gap-2" style=" align-items: center;">
+                                <img src="https://yt3.ggpht.com/a_J71DucErxPy5kQ3CGhVYmkpoim77YN9-1J76xrBm0eLpVtnVV4e3IFM-zj8x-VUYwiBxA3vg=s108-c-k-c0x00ffffff-no-rj"
+                                    class="icon" alt="channel icon">
+                                <div>
+                                    <span id="my-channel-name">자동팝콘발사기</span><br>
+                                    <span id="my-channel-handle">@AutoPopcornShooter</span><br>
+                                    <a  style="text-decoration-line: none; color:rgb(143, 143, 255)">내 채널 보기</a>
+                                </div>
+                            </li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-play-btn">&nbsp;&nbsp;Google 게정</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-person-square">&nbsp;&nbsp;계정 전환</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-box-arrow-right">&nbsp;&nbsp;로그아웃</a></li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-play-circle">&nbsp;&nbsp;YouTube 스튜디오</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-p-square-fill">&nbsp;&nbsp;내 Premium 혜택</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-coin">&nbsp;&nbsp;구매 항목 및 멤버십</a></li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-person-circle">&nbsp;&nbsp;YouTube의 내 데이터</a>
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-moon">&nbsp;&nbsp;디자인: 어두운 테마</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-translate">&nbsp;&nbsp;언어: 한국어</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-shield-exclamation">&nbsp;&nbsp;제한 모드: 사용 안함</a>
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-geo-alt-fill">&nbsp;&nbsp;위치: 한국</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-keyboard">&nbsp;&nbsp;단축키</a></li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-gear">&nbsp;&nbsp;설정</a></li>
+                            <li class="dropdown-item-text">
+                                <hr style="border: none; height: 1px; background-color: #ccc;">
+                            </li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-question-circle">&nbsp;&nbsp;고객센터</a></li>
+                            <li><a class="dropdown-item btn btn-dark bi bi-exclamation-square">&nbsp;&nbsp;의견 보내기</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div id="center">
-                <div style="width:100%;">
-                    <form class="row g-1 " method="get" enctype="multipart/form-data" id="search-form">
-                        <div class="col-md-7 gx-0">
-                            <input type="text" class="form-control" name="search bar" id="search-bar" placeholder="검색">
-                        </div>
-                        <div class="col-auto gx-0">
-                            <button type="button" class="btn btn-dark" id="search-btn">
-                                <span class="bi bi-search"></span>
-                            </button>
-                        </div>
-                        <div class="col-auto gx-4">
-                            <button type="button" class="btn btn-dark" id="record-btn">
-                                <span class="bi bi-mic-fill"></span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div id="right">
-                <div class="nav-item ">
-                    <button class="btn btn-dark" id="create-content-btn">
-                        <span class="bi bi-plus-lg "></span>
-                        <span>만들기</span>
-                    </button>
-                </div>
-                <div class="nav-item ">
-                    <button class="btn btn-dark" id="notice-btn">
-                        <span class="bi bi-bell fs-5"></span>
-                    </button>
-                </div>
-                <div class="nav-item ">
-                    <button type="button" class="btn btn-secondary" id="account-btn"></button>
-                </div>
-            </div>
-        </div>
-
-    </nav>
+        </nav>

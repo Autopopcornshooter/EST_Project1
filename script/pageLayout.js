@@ -1,3 +1,4 @@
+//------------------지정 위치에 html문 추가----------------------
 function addElement(file_location, target_tag) {
     return fetch(file_location)
         .then(res => res.text())
@@ -7,122 +8,7 @@ function addElement(file_location, target_tag) {
         .catch(err => console.error("불러오기 실패:", err));
 
 }
-
-export async function getMainPage() {
-    document.getElementById("fetch-area").replaceChildren();
-    await load_secondNavbar();
-    await load_sidebar();
-    await load_indexLayout();
-    await renderingContentCards();
-
-    // 콘텐츠 영역이 생성된 후 카드들 추가
-}
-
-export async function getSubscribePage() {
-    document.getElementById("fetch-area").replaceChildren();
-    await load_subscribeLayout();
-    await load_sidebar();
-    await load_indexLayout();
-   await renderingContentCards();
-
-}
-export async function getVideoPlayPage(video) {
-    await getVideoData(video);
-    document.getElementById("fetch-area").replaceChildren();
-    await load_playScreenLayout(video);
-}
-
-async function load_sidebar() {
-    await addElement('../element/sidebar.html', document.getElementById("fetch-area"));
-    await waitForElement("#fetch-area");
-}
-async function load_secondNavbar() {
-    await addElement('../element/secondNavbar.html', document.getElementById("fetch-area"));
-    await waitForElement("#fetch-area");
-}
-async function load_indexLayout() {
-    await addElement('../layout/indexLayout.html', document.getElementById("fetch-area"));
-    await waitForElement("#fetch-area");
-}
-async function load_subscribeLayout() {
-    await addElement('../layout/subscribeLayout.html', document.getElementById("fetch-area"));
-    await waitForElement("#fetch-area");
-}
-
-async function load_playScreenLayout(object) {
-    await addElement('../layout/playScreenLayout.html', document.getElementById("fetch-area"));
-    await waitForElement("#fetch-area");
-    setVideoPageElement(object);
-}
-async function renderingContentCards(){
-    fetch("../data/contentsData.json")
-    .then(res=>res.json())
-    .then(dataList=>{
-        dataList.forEach(videoData=>{
-            load_contentCard(videoData);
-        });
-    });
-}
-
-async function load_contentCard(videoData) {
-    await addElement("../element/content-card.html", document.getElementById("contentArea"));
-    await waitForElement("#contentArea");
-
-    const cards=document.querySelectorAll(".video-card");
-    const newCard=cards[cards.length-1];
-    await setContentData(videoData, newCard);
-    setContentCardElement(newCard);
-}
-async function load_listCard(videoData){
-    await addElement("../element/list-card.html", document.getElementById("content-listSide"));
-    await waitForElement("#content-listSide");
-
-    const cards=document.querySelectorAll(".video-card");
-    const newCard=cards[cards.length-1];
-    await setContentData(videoData, newCard);
-    setContentCardElement(newCard);
-}
-
-async function setContentData(data, card){
-    card.dataset.imbedLink=data._imbedLink;
-    card.dataset.thumbnail=data._thumbnail;
-    card.dataset.channel=data._channel;
-    card.dataset.channelName=data._channelName;
-    card.dataset.channelIcon=data._channelIcon;
-    card.dataset.title=data._title;
-    card.dataset.subscriber=data._subscriber;
-    card.dataset.like=data._like;
-    card.dataset.view=data._view;
-    card.dataset.date=data._date;
-}
-async function setContentCardElement(object){
-    object.querySelector(".thumbnail").setAttribute("src",object.dataset.thumbnail);
-    object.querySelector(".channel-href").setAttribute("href", object.dataset.channel);
-    object.querySelector(".channel-icon").setAttribute("src",object.dataset.channelIcon);
-    object.querySelector(".content-title").innerHTML=object.dataset.title;
-    object.querySelector(".channel-name").innerHTML=object.dataset.channelName;
-    object.querySelector(".view-count").innerHTML=object.data.view;
-    object.querySelector(".update-time").innerHTML=formatRelativeTime(object.dataset.date);
-}
-async function setVideoPageElement(object){
-    object.getElementById("#iframe-area").setAttribute("src",object.dataset.imbedLink);
-    object.querySelector(".thumbnail").setAttribute("src",object.dataset.thumbnail);
-    object.querySelector(".channel-href").setAttribute("href", object.dataset.channel);
-    object.querySelector(".channel-icon").setAttribute("src",object.dataset.channelIcon);
-    object.querySelector(".content-title").innerHTML=object.dataset.title;
-    object.querySelector(".channel-name").innerHTML=object.dataset.channelName;
-    object.querySelector(".subscriber").innerHTML=object.dataset.subscriber;
-    object.querySelector(".like-count").innerHTML=object.dataset.like;
-    object.querySelector(".view-count").innerHTML=object.data.view;
-    object.querySelector(".update-time").innerHTML=formatRelativeTime(object.dataset.date);
-}
-async function load_listCard(videoData) {
-    await addElement('../element/list-card.html', document.getElementById("content-list"));
-    await waitForElement("#content-list");
-}
-
-
-
+//------------요소 로딩 대기-------------------
 async function waitForElement(selector) {
     return new Promise(resolve => {
         function check() {
@@ -135,6 +21,184 @@ async function waitForElement(selector) {
         check();
     });
 }
+
+//----------------홈페이지 로드------------------
+export async function getMainPage() {
+    document.getElementById("fetch-area").replaceChildren();
+    await load_navbar();
+    await load_secondNavbar();
+    await load_sidebar();
+    await load_indexLayout();
+    await fetchContentCards();
+
+    // 콘텐츠 영역이 생성된 후 카드들 추가
+}
+//----------------구독 페이지 로드------------------
+export async function getSubscribePage() {
+    document.getElementById("fetch-area").replaceChildren();
+    await load_navbar();
+    await load_subscribeLayout();
+    await load_sidebar();
+    await load_indexLayout();
+    await fetchContentCards();
+
+}
+//----------------영상 재생 페이지 로드------------------
+export async function getVideoPlayPage() {
+    //----별도 video.html 로드----
+    await load_navbar();
+    await load_offcanvasSidebar();
+    const params = new URLSearchParams(window.location.search);
+    const videoId = params.get("videoId");
+    console.log(videoId);
+    await load_playScreenLayout(videoId);
+    //await renderingListCards();
+}
+export async function addVideoComment(comment){
+    const username="자동팝콘발사기";
+    const date=new Date();
+    await waitForElement("#comments-list");
+    const target=document.getElementById("comments-list");
+    const commentEl=`<div class="d-flex gap-3">
+                            <img src="https://yt3.ggpht.com/a_J71DucErxPy5kQ3CGhVYmkpoim77YN9-1J76xrBm0eLpVtnVV4e3IFM-zj8x-VUYwiBxA3vg=s108-c-k-c0x00ffffff-no-rj"
+                                class="icon" alt="user icon">
+                            <div style="flex:auto;">
+                                <div class="d-flex align-items-center gap-2" style="margin-bottom: 0.5rem;">
+                                    <span id="userName"
+                                        style="color: white; font-weight: 500; font-size: 0.9rem;">${username}</span>
+                                    <span id="timeStamp" style="color: gray; font-size: 0.8rem;">방금 전</span>
+                                </div>
+                                <p id="commentText" style="color: white; margin: 0; line-height: 1.4;">${comment}</p>
+                                <div class="d-flex gap-3" style="margin-top: 0.5rem;">
+                                    <a class="btn custom-btn" style="padding: 0.2rem 0.5rem;">
+                                        <i class="bi bi-hand-thumbs-up"></i> <span style="font-size: 0.8rem;"></span>
+                                    </a>
+                                    <button class="btn custom-btn" style="padding: 0.2rem 0.5rem;">
+                                        <i class="bi bi-hand-thumbs-down"></i>
+                                    </button>
+                                    <button class="btn custom-btn"
+                                        style="display: inline; padding: 0.2rem 0.5rem; font-size: 0.8rem; width:3rem;">답글</button>
+                                </div>
+                            </div>
+                        </div>`;
+        target.innerHTML+=commentEl;
+}
+//----------------사이드바 로드------------------
+async function load_sidebar() {
+    await addElement('../element/sidebar.html', document.getElementById("fetch-area"));
+    await waitForElement("#fetch-area");
+}
+//----------------오프캔버스 사이드바 로드------------------
+async function load_offcanvasSidebar() {
+    await addElement('../element/offcanvasSidebar.html', document.getElementById("fetch-area"));
+    await waitForElement("#fetch-area");
+    const el = document.getElementById('offcanvasSidebar');
+}
+//----------------네비게이션바-1 로드------------------
+async function load_navbar() {
+    await addElement('../element/navbar.html', document.getElementById("default-area"));
+    await waitForElement("#default-area");
+}
+//----------------네비게이션바-2 로드------------------
+async function load_secondNavbar() {
+    await addElement('../element/secondNavbar.html', document.getElementById("fetch-area"));
+    await waitForElement("#fetch-area");
+}
+//----------------index 레이아웃 로드------------------
+async function load_indexLayout() {
+    await addElement('../layout/indexLayout.html', document.getElementById("fetch-area"));
+    await waitForElement("#fetch-area");
+}
+//----------------구독 레이아웃 로드------------------
+async function load_subscribeLayout() {
+    await addElement('../layout/subscribeLayout.html', document.getElementById("fetch-area"));
+    await waitForElement("#fetch-area");
+}
+//----------------영상재생 레이아웃 로드------------------
+async function load_playScreenLayout(videoId) {
+    await waitForElement("#fetch-area");
+    await addElement('../layout/playScreenLayout.html', document.getElementById("fetch-area"));
+    await setVideoPageElement(videoId);
+}
+
+//----------------영상재생 요소 데이터 입력---------------
+async function setVideoPageElement(videoId) {
+    const playside = document.getElementById("content-playSide");
+    const data = await fetch("../data/contentsData.json")
+        .then(res => res.json())
+        .then(dataList => {
+            return dataList.find(element => element._videoId === videoId);
+        });
+    console.log(data._videoId);
+    playside.querySelector("#iframe-area").setAttribute("src", data._imbedLink + "?autoplay=1&mute=1");
+    playside.querySelector("#content-title").innerHTML = data._title;
+
+    playside.querySelectorAll(".channel-icon").forEach(el => {
+        el.setAttribute("src", data._channelIcon);
+    });
+    playside.querySelectorAll(".channel-link").forEach(el => {
+        el.setAttribute("href", data._channel);
+    });
+    playside.querySelectorAll(".channel-name").forEach(el => {
+        el.innerHTML = data._channelName;
+    });
+    playside.querySelectorAll(".subscriber").forEach(el => {
+        el.innerHTML = data._subscriber;
+    });
+    playside.querySelectorAll(".view-count").forEach(el => {
+        el.innerHTML = '조회수 ' + data._view;
+    });
+    playside.querySelectorAll(".update-time").forEach(el => {
+        el.innerHTML = formatRelativeTime(data._date);
+    });
+    playside.querySelector(".video-description").innerHTML = data._description+" ...더보기";
+    playside.querySelector(".like-count").innerHTML = data._like;
+
+    // 댓글 로드
+    await loadVideoComments(videoId);
+}
+async function loadVideoComments(videoId){
+
+}
+
+//----------------댓글 HTML 요소 생성 함수------------------
+
+//----------------Json에서 컨텐츠카드 데이터 fetch------------------
+async function fetchContentCards() {
+    fetch("../data/contentsData.json")
+        .then(res => res.json())
+        .then(dataList => {
+            dataList.forEach(videoData => {
+                load_contentCard(videoData);
+            });
+        });
+}
+
+
+//----------------카드 목록에 카드 추가------------------
+async function load_contentCard(videoData) {
+    await waitForElement("#contentArea");
+    const obj = await addElement("../element/content-card.html", document.getElementById("contentArea"));
+
+    const cards = document.querySelectorAll(".video-card");
+    const newCard = cards[cards.length - 1];
+    newCard.dataset.videoId = cards.length - 1;
+    setContentCardElement(newCard, videoData);
+}
+
+
+
+//----------------Json에서 id로 카드 불러와 카드에 데이터 입력------------------
+async function setContentCardElement(object, videoData) {
+    object.querySelector(".thumbnail").setAttribute("src", videoData._thumbnail);
+    object.querySelector(".channel-href").setAttribute("href", videoData._channel);
+    object.querySelector(".channel-icon").setAttribute("src", videoData._channelIcon);
+    object.querySelector(".content-title").innerHTML = videoData._title;
+    object.querySelector(".channel-name").innerHTML = videoData._channelName;
+    object.querySelector(".view-count").innerHTML = videoData._view;
+    object.querySelector(".update-time").innerHTML = formatRelativeTime(videoData._date);
+}
+
 
 
 function formatRelativeTime(dateInput) {

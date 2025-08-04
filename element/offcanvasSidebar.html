@@ -1,11 +1,24 @@
- <div class="d-flex position-fixed top-0 start-0 vh-100 overflow-auto bg-dark scroll-vertical _sidebar" 
- style="width: 17rem;
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcnavasExampleLabel" style="width: 17rem;">
+    <div class="d-flex position-fixed top-0 start-0 vh-100 overflow-auto bg-dark scroll-vertical _sidebar" style="width:inherit;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 4rem;
-    z-index: 20;">
+    padding-top: 0rem;
+    z-index: 40;">
+
         <ul class="nav flex-column gap-0" id="sidebar_listLayout">
-            <li class="nav-item w-100">
+            <div class="d-flex"
+                style="position:fixed; background-color: black; height:4rem; width:inherit; align-items: center; z-index: 40;">
+                <button class="btn btn-dark custom-btn bi bi-list" style="font-size:25px;" data-bs-dismiss="offcanvas"
+                    aria-label="Close">
+                </button>
+
+                <a class="btn link-home-btn" href="../layout/index.html" id="youtube-logo-btn">
+                    <!--현재 주소 리다이렉트-->
+                    <img src="https://i.ibb.co/6RMLwjV1/youtube-Logo.jpg" alt="youtube logo"
+                        style="width:100%; height:auto;">
+                </a>
+            </div>
+            <li class="nav-item w-100" style="margin-top: 4rem;">
                 <a class="btn btn-dark sidebar-btnList link-home-btn" href="../layout/index.html">
                     <span class="bi bi-house-door-fill sidebar-logo"></span>홈
                 </a>
@@ -174,3 +187,4 @@
 
         </ul>
     </div>
+</div>

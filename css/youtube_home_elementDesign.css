@@ -28,7 +28,7 @@
     text-align: left;
     align-items: center;
     width: 100%;
-    height:3rem;
+    height: 3rem;
     border: none;
     border-radius: 10px;
 }
@@ -36,14 +36,16 @@
 .sidebar-btnList:hover {
     background-color: #212529 !important;
 }
-.sidebar-logo{
+
+.sidebar-logo {
     font-size: 20px;
     margin-right: 2rem;
 }
-.sidebar-img{
-    width:1.5rem;
-    height:auto;
-    background-size:contain;
+
+.sidebar-img {
+    width: 1.5rem;
+    height: auto;
+    background-size: contain;
 }
 
 
@@ -86,7 +88,7 @@
     border-radius: 999px;
 }
 
-#input-comment{
+#input-comment {
     background-color: black;
     color: white;
     align-items: center;
@@ -94,7 +96,8 @@
     border-color: black;
     border-bottom-color: white;
 }
-#input-comment:focus{
+
+#input-comment:focus {
     box-shadow: none;
     outline: none;
 }
@@ -143,11 +146,12 @@
     width: 100%;
     height: 100%;
 }
-.content-btn:hover{
-    top:-2.5%;
-    left:-2.5%;
-    width:105%;
-    height:105%;
+
+.content-btn:hover {
+    top: -2.5%;
+    left: -2.5%;
+    width: 105%;
+    height: 105%;
 }
 
 
@@ -189,62 +193,72 @@
     border-color: #212529 !important;
     background-color: #212529 !important;
 }
-.custom-btn{
+
+.custom-btn {
     background-color: black;
-    border-color:black;
+    border-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+
+}
+
+.custom-btn:hover {
+    background-color: #212529;
+    border-color: #212529;
     color:white;
+}
+
+#youtube-logo-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:2.5rem;
-    height:2.5rem;
-    border-radius: 999px;
-    
+    width: 150px;
+    height: 40px;
 }
-.custom-btn:hover{
-    background-color:#212529 ;
-    border-color:#212529;
-}
-#youtube-logo-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:150px;
-    height:40px;
-}
-.round-btn{
-     display:inline-flex;
+
+.round-btn {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     border-radius: 999px;
 }
-#subscribe-btn{
-    color:black;
+
+#subscribe-btn {
+    color: black;
     font-weight: 400;
     background-color: white;
-    width:4rem;
-    height:2.5rem;
+    width: 4rem;
+    height: 2.5rem;
 }
-#subscribe-btn:hover{
-    background-color:rgb(201, 201, 201);
+
+#subscribe-btn:hover {
+    background-color: rgb(201, 201, 201);
 }
-.btn-setting{
-    display:inline-flex;
+
+.btn-setting {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
 }
-.btn-black{
+
+.btn-black {
     background-color: black;
-    border-color:none;
-    color:white;
-}
-.btn-black:hover{
-    background-color:#212529 ;
-    border-color:none;
-    color:white;
+    border-color: none;
+    color: white;
 }
 
-.dropdown-toggle::after{
+.btn-black:hover {
+    background-color: #212529;
+    border-color: none;
+    color: white;
+}
+
+.dropdown-toggle::after {
     display: none !important;
 }

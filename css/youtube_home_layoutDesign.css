@@ -39,15 +39,11 @@ body {
     height: 3rem;
     padding-left: 1rem;
 }
-#sidebar {
+._sidebar {
     background-color: black !important;
     display: inline-flex;
     position: fixed;
-    width: 17rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 4rem;
-    z-index: 20;
+    
 }
 #sidebar_listLayout {
     justify-content: left;

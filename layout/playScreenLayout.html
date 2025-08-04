@@ -2,7 +2,8 @@
     <div class="col-lg-7 col-md-12" id="content-playSide">
         <div>
             <a style="display:inline-block; width:100%;aspect-ratio: 16/9; background-color:none;">
-                <iframe id="iframe-area" width="100%" height="100%" src="https://www.youtube.com/embed/vEvlZVhs090?si=VLO-shYZWK76jOjc&autoplay=1&mute=0"
+                <iframe id="iframe-area" width="100%" height="100%"
+                    src="https://www.youtube.com/embed/vEvlZVhs090?si=VLO-shYZWK76jOjc&autoplay=1&mute=0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -12,15 +13,15 @@
                 <div class="d-flex gap-2" style=" height: 2.5rem; align-items: center;">
                     <a class="channel-link" href="https://www.youtube.com/@FindoutRecords">
                         <img class="channel-icon icon"
-                            src="https://yt3.googleusercontent.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s160-c-k-c0x00ffffff-no-rj"></a>
+                            src="https://yt3.googleusercontent.com/_86iARYf554kvJIA4uzuMP1-mTANI9t4ExUL0sbVwQv5wX13hHoEeyhG2u_GFXEv72t-gxtmxA=s160-c-k-c0x00ffffff-no-rj">
+                    </a>
                     <div style="display: inline-block; min-width: 7rem;">
-                        <a class="channel-link" href="https://www.youtube.com/@FindoutRecords"
+                        <a class="channel-link channel-name" href="https://www.youtube.com/@FindoutRecords"
                             style="color:white; text-decoration-line: none; font-weight: 500;">Findout Records</a>
                         <br>
                         <span class="subscriber" style="color:gray; font-size: smaller;">구독자 8.76천명</span>
                     </div>
-                    <a  class="btn round-btn btn-setting"
-                        id="subscribe-btn" style="margin-left:2rem;">
+                    <a class="btn round-btn btn-setting" id="subscribe-btn" style="margin-left:2rem;">
                         구독</a>
                     <div class="d-flex gap-2" style="margin-left: auto;" name="rightSide">
                         <div class="d-flex gap-0">
@@ -34,18 +35,36 @@
                                 id="dislike-input">
                             </a>
                         </div>
-                        <a  class="btn btn-setting btn-dark round-btn bi bi-arrow-90deg-right">&nbsp;&nbsp;공유</a>
-                        <a  class="btn btn-setting btn-dark round-btn bi bi-download">&nbsp;&nbsp;오프라인 저장</a>
-                        <a  class="btn btn-setting btn-dark round-btn bi bi-scissors">&nbsp;&nbsp;클립</a>
-                        <a  class="btn btn-setting btn-dark round-btn bi bi-bookmark">&nbsp;&nbsp;저장</a>
-                        <a  class="btn btn-setting btn-dark round-btn bi bi-three-dots"></a>
+                        <a class="btn btn-setting btn-dark round-btn bi bi-arrow-90deg-right">&nbsp;&nbsp;공유</a>
+                        <a class="btn btn-setting btn-dark round-btn bi bi-download">&nbsp;&nbsp;오프라인 저장</a>
+                        <a class="btn btn-setting btn-dark round-btn bi bi-scissors">&nbsp;&nbsp;클립</a>
+                        <a class="btn btn-setting btn-dark round-btn bi bi-bookmark">&nbsp;&nbsp;저장</a>
+                        <a class="btn btn-setting btn-dark round-btn bi bi-three-dots"></a>
                     </div>
                 </div>
-                <a
-                    style="height:7rem; box-sizing: border-box; border-radius: 10px; background-color: #292929; color:white; text-decoration-line: none; "></a>
+
+                <!-- 설명란 -->
+
+                <a class="btn description-text collapsed desc-toggle-btn" id="desc-text"
+                    style="width:100%; height:7rem; box-sizing: border-box; border-radius: 10px; background-color: #292929; color:white; text-decoration-line: none; ">
+                    <div name="videoInfo" class="d-flex gap-4">
+                        <span class="view-count" style="font-weight: bold;"></span>
+                        <span class="update-time"></span>
+                    </div>
+                    <span class="video-description"
+                        style="display: block; word-break: break-word; white-space: normal; overflow-wrap: break-word; text-align: left; ">
+                    </span>
+                    <span id="desc-toggle" a
+                        style="display: block; word-break: break-word; white-space: normal; overflow-wrap: break-word; text-align: left;">
+                    </span>
+                </a>
+
+
+
+
                 <div class="col d-flex gap-5">
                     <h4 style="color:white">댓글 24개</h4>
-                    <a  class="btn btn-setting "
+                    <a class="btn btn-setting "
                         style="background-color: black; color:white; text-decoration-line: none; height:2rem; border-radius: 5px;">
                         <i class="bi bi-filter-left fs-3"></i>&nbsp;&nbsp;정렬 기준
                     </a>
@@ -54,23 +73,37 @@
                 <div class="d-flex align-items-center gap-3">
                     <img src="https://yt3.ggpht.com/a_J71DucErxPy5kQ3CGhVYmkpoim77YN9-1J76xrBm0eLpVtnVV4e3IFM-zj8x-VUYwiBxA3vg=s48-c-k-c0x00ffffff-no-rj"
                         class="icon" alt="account icon img">
-                    <form action="/submit" method="post" enctype="multipart/form-data" id="comments form"
+                    <form action="#" method="post" enctype="multipart/form-data" id="comments-form"
                         style="box-sizing: border-box; width:100%;">
                         <input type="text" class="form-control" id="input-comment">
                         <div class="d-flex" style="margin-top: 1rem;">
-                            <a  class="btn custom-btn btn-dark round-btn bi bi-emoji-smile fs-5"></a>
+                            <a class="btn custom-btn btn-dark round-btn bi bi-emoji-smile fs-5"></a>
 
                             <div style="margin-left: auto;">
-                                <a  class="btn btn-setting btn-black" style="border-radius: 999px;">취소</a>
-                                <a  class="btn btn-setting btn-black" style="border-radius: 999px;">댓글</a>
+                                <a class="btn btn-setting btn-black" id="comment-cancel"
+                                    style="border-radius: 999px;">취소</a>
+                                <button class="btn btn-setting btn-black" type="submit" id="comment-submit"
+                                    style="border-radius: 999px;">댓글</button>
                             </div>
                         </div>
                     </form>
                 </div>
+
+                <div id="comments-section" style="margin-top: 2rem;">
+                    <h6 style="color: white; margin-bottom: 1rem;">댓글</h6>
+                    
+                    
+                    <div id="comments-list">
+                        <div class="d-flex gap-3">
+                            
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-3 " >
+    <div class="col-lg-3 ">
         <div class="row">
             <div class="d-flex" style="align-items: center;">
                 <a class="btn btn-dark round-btn custom-btn bi bi-chevron-left"

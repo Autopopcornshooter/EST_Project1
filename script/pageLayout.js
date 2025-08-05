@@ -88,8 +88,8 @@ async function load_listCard(videoData) {
     await waitForElement("#content-listSide");
 
     const target = document.getElementById("content-listSide");
-    const listCardEl = 
-                `<div class="custom-card d-flex video-card" style="position:relative; width:100%; height:7rem; margin-top:1rem;margin-bottom:1rem;"
+    const listCardEl =
+        `<div class="custom-card d-flex video-card" style="position:relative; width:100%; height:7rem; margin-top:1rem;margin-bottom:1rem;"
                     id="data-container" data-video-id=${videoData._videoId}>
                     <a class="btn main-link" id="content-btn"
                         style="box-sizing: border-box; position:absolute; width:inherit;height:inherit;"></a>
@@ -107,7 +107,7 @@ async function load_listCard(videoData) {
                         <span class="card-text update-time" style="font-size:smaller">${formatRelativeTime(videoData._date)}</span>
                     </div>
                 </div>`;
-                target.innerHTML+=listCardEl;
+    target.innerHTML += listCardEl;
 
 }
 //----------------사이드바 로드------------------
@@ -156,7 +156,7 @@ async function setVideoPageElement(videoId) {
         .then(dataList => {
             return dataList.find(element => element._videoId === videoId);
         });
-        
+
     console.log(data._videoId);
     playside.querySelector("#iframe-area").setAttribute("src", `${data._imbedLink}&autoplay=1&mute=1`);
     playside.querySelector("#content-title").innerHTML = data._title;
@@ -216,12 +216,15 @@ async function fetchListCards() {
 //----------------카드 목록에 카드 추가------------------
 async function load_contentCard(videoData) {
     await waitForElement("#contentArea");
-    const obj = await addElement("element/content-card.html", document.getElementById("contentArea"));
+    const obj = await addElement("element/content-card.html", document.getElementById("contentArea"))
+        .then(() => {
+            const cards = document.querySelectorAll(".video-card");
+            const newCard = cards[cards.length - 1];
+            newCard.dataset.videoId = cards.length - 1;
+            setContentCardElement(newCard, videoData);
+        });
 
-    const cards = document.querySelectorAll(".video-card");
-    const newCard = cards[cards.length - 1];
-    newCard.dataset.videoId = cards.length - 1;
-    setContentCardElement(newCard, videoData);
+
 }
 
 

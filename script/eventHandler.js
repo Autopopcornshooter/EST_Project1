@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (target.id === 'content-btn') {
             event.preventDefault();
             console.log('영상 재생 페이지로 이동');
-            const object = target.closest(".content-card");
+            const object = target.closest(".video-card");
             console.log(object);
             window.location.href = `../layout/video.html?videoId=${object.dataset.videoId}`
             //handlePlayScreenNavigation();

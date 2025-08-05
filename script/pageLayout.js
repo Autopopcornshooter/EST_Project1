@@ -52,14 +52,14 @@ export async function getVideoPlayPage() {
     const videoId = params.get("videoId");
     console.log(videoId);
     await load_playScreenLayout(videoId);
-    //await renderingListCards();
+    await fetchListCards();
 }
-export async function addVideoComment(comment){
-    const username="자동팝콘발사기";
-    const date=new Date();
+export async function addVideoComment(comment) {
+    const username = "자동팝콘발사기";
+    const date = new Date();
     await waitForElement("#comments-list");
-    const target=document.getElementById("comments-list");
-    const commentEl=`<div class="d-flex gap-3">
+    const target = document.getElementById("comments-list");
+    const commentEl = `<div class="d-flex gap-3">
                             <img src="https://yt3.ggpht.com/a_J71DucErxPy5kQ3CGhVYmkpoim77YN9-1J76xrBm0eLpVtnVV4e3IFM-zj8x-VUYwiBxA3vg=s108-c-k-c0x00ffffff-no-rj"
                                 class="icon" alt="user icon">
                             <div style="flex:auto;">
@@ -81,7 +81,34 @@ export async function addVideoComment(comment){
                                 </div>
                             </div>
                         </div>`;
-        target.innerHTML+=commentEl;
+    target.innerHTML += commentEl;
+}
+//--------------------------영상 재생 페이지 우측 리스트 카드 출력 로드------------------------
+async function load_listCard(videoData) {
+    await waitForElement("#content-listSide");
+
+    const target = document.getElementById("content-listSide");
+    const listCardEl = 
+                `<div class="custom-card d-flex video-card" style="position:relative; width:100%; height:7rem; margin-top:1rem;margin-bottom:1rem;"
+                    id="data-container" data-video-id=${videoData._videoId}>
+                    <a class="btn main-link" id="content-btn"
+                        style="box-sizing: border-box; position:absolute; width:inherit;height:inherit;"></a>
+
+                    <div class="col" style="width:inherit;height:inherit;">
+                        <img class="thumbnail" src=${videoData._thumbnail}
+                            style="height:inherit; background-size:cover; aspect-ratio: 16/9; border-radius: 10px;">
+
+                    </div>
+                    <div class="col">
+                        <h5 class="content-title" style="color: white; font-size:small;">${videoData._title}</h5>
+                        <span class="card-text channel-name" style="font-size:smaller;">${videoData._channelName}</span><br>
+                        <span class="card-text view-count" style="font-size:smaller">${videoData._view}</span>
+                        <span class="card-text bi bi-dot" style="font-size:smaller"></span>
+                        <span class="card-text update-time" style="font-size:smaller">${formatRelativeTime(videoData._date)}</span>
+                    </div>
+                </div>`;
+                target.innerHTML+=listCardEl;
+
 }
 //----------------사이드바 로드------------------
 async function load_sidebar() {
@@ -129,8 +156,9 @@ async function setVideoPageElement(videoId) {
         .then(dataList => {
             return dataList.find(element => element._videoId === videoId);
         });
+        
     console.log(data._videoId);
-    playside.querySelector("#iframe-area").setAttribute("src", data._imbedLink + "?autoplay=1&mute=1");
+    playside.querySelector("#iframe-area").setAttribute("src", `${data._imbedLink}&autoplay=1&mute=1`);
     playside.querySelector("#content-title").innerHTML = data._title;
 
     playside.querySelectorAll(".channel-icon").forEach(el => {
@@ -151,13 +179,13 @@ async function setVideoPageElement(videoId) {
     playside.querySelectorAll(".update-time").forEach(el => {
         el.innerHTML = formatRelativeTime(data._date);
     });
-    playside.querySelector(".video-description").innerHTML = data._description+" ...더보기";
+    playside.querySelector(".video-description").innerHTML = data._description + " ...더보기";
     playside.querySelector(".like-count").innerHTML = data._like;
 
     // 댓글 로드
     await loadVideoComments(videoId);
 }
-async function loadVideoComments(videoId){
+async function loadVideoComments(videoId) {
 
 }
 
@@ -173,7 +201,17 @@ async function fetchContentCards() {
             });
         });
 }
+//----------------Json에서 리스트(컨텐츠)카드 데이터 fetch------------------
+async function fetchListCards() {
+    fetch("../data/contentsData.json")
+        .then(res => res.json())
+        .then(dataList => {
+            dataList.forEach(videoData => {
+                load_listCard(videoData);
+            });
+        });
 
+}
 
 //----------------카드 목록에 카드 추가------------------
 async function load_contentCard(videoData) {
@@ -185,6 +223,7 @@ async function load_contentCard(videoData) {
     newCard.dataset.videoId = cards.length - 1;
     setContentCardElement(newCard, videoData);
 }
+
 
 
 

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('영상 재생 페이지로 이동');
             const object = target.closest(".video-card");
             console.log(object);
-            window.location.href = `../layout/video.html?videoId=${object.dataset.videoId}`
+            window.location.href = `../video.html?videoId=${object.dataset.videoId}`
             //handlePlayScreenNavigation();
         }
         else if (target.id === 'expand_description') {

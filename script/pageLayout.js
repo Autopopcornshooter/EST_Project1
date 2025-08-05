@@ -133,18 +133,18 @@ async function load_secondNavbar() {
 }
 //----------------index 레이아웃 로드------------------
 async function load_indexLayout() {
-    await addElement('../layout/indexLayout.html', document.getElementById("fetch-area"));
+    await addElement('../indexLayout.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------구독 레이아웃 로드------------------
 async function load_subscribeLayout() {
-    await addElement('../layout/subscribeLayout.html', document.getElementById("fetch-area"));
+    await addElement('../subscribeLayout.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------영상재생 레이아웃 로드------------------
 async function load_playScreenLayout(videoId) {
     await waitForElement("#fetch-area");
-    await addElement('../layout/playScreenLayout.html', document.getElementById("fetch-area"));
+    await addElement('../playScreenLayout.html', document.getElementById("fetch-area"));
     await setVideoPageElement(videoId);
 }
 

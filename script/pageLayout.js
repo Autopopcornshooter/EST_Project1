@@ -128,7 +128,7 @@ async function load_navbar() {
 }
 //----------------네비게이션바-2 로드------------------
 async function load_secondNavbar() {
-    await addElement('lement/secondNavbar.html', document.getElementById("fetch-area"));
+    await addElement('element/secondNavbar.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------index 레이아웃 로드------------------

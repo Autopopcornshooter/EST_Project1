@@ -112,12 +112,12 @@ async function load_listCard(videoData) {
 }
 //----------------사이드바 로드------------------
 async function load_sidebar() {
-    await addElement('../element/sidebar.html', document.getElementById("fetch-area"));
+    await addElement('element/sidebar.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------오프캔버스 사이드바 로드------------------
 async function load_offcanvasSidebar() {
-    await addElement('../element/offcanvasSidebar.html', document.getElementById("fetch-area"));
+    await addElement('element/offcanvasSidebar.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
     const el = document.getElementById('offcanvasSidebar');
 }
@@ -128,30 +128,30 @@ async function load_navbar() {
 }
 //----------------네비게이션바-2 로드------------------
 async function load_secondNavbar() {
-    await addElement('../element/secondNavbar.html', document.getElementById("fetch-area"));
+    await addElement('lement/secondNavbar.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------index 레이아웃 로드------------------
 async function load_indexLayout() {
-    await addElement('../indexLayout.html', document.getElementById("fetch-area"));
+    await addElement('indexLayout.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------구독 레이아웃 로드------------------
 async function load_subscribeLayout() {
-    await addElement('../subscribeLayout.html', document.getElementById("fetch-area"));
+    await addElement('subscribeLayout.html', document.getElementById("fetch-area"));
     await waitForElement("#fetch-area");
 }
 //----------------영상재생 레이아웃 로드------------------
 async function load_playScreenLayout(videoId) {
     await waitForElement("#fetch-area");
-    await addElement('../playScreenLayout.html', document.getElementById("fetch-area"));
+    await addElement('playScreenLayout.html', document.getElementById("fetch-area"));
     await setVideoPageElement(videoId);
 }
 
 //----------------영상재생 요소 데이터 입력---------------
 async function setVideoPageElement(videoId) {
     const playside = document.getElementById("content-playSide");
-    const data = await fetch("../data/contentsData.json")
+    const data = await fetch("data/contentsData.json")
         .then(res => res.json())
         .then(dataList => {
             return dataList.find(element => element._videoId === videoId);
@@ -193,7 +193,7 @@ async function loadVideoComments(videoId) {
 
 //----------------Json에서 컨텐츠카드 데이터 fetch------------------
 async function fetchContentCards() {
-    fetch("../data/contentsData.json")
+    fetch("data/contentsData.json")
         .then(res => res.json())
         .then(dataList => {
             dataList.forEach(videoData => {
@@ -203,7 +203,7 @@ async function fetchContentCards() {
 }
 //----------------Json에서 리스트(컨텐츠)카드 데이터 fetch------------------
 async function fetchListCards() {
-    fetch("../data/contentsData.json")
+    fetch("data/contentsData.json")
         .then(res => res.json())
         .then(dataList => {
             dataList.forEach(videoData => {
@@ -216,7 +216,7 @@ async function fetchListCards() {
 //----------------카드 목록에 카드 추가------------------
 async function load_contentCard(videoData) {
     await waitForElement("#contentArea");
-    const obj = await addElement("../element/content-card.html", document.getElementById("contentArea"));
+    const obj = await addElement("element/content-card.html", document.getElementById("contentArea"));
 
     const cards = document.querySelectorAll(".video-card");
     const newCard = cards[cards.length - 1];

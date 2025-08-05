@@ -123,7 +123,7 @@ async function load_offcanvasSidebar() {
 }
 //----------------네비게이션바-1 로드------------------
 async function load_navbar() {
-    await addElement('../EST_Project1/element/navbar.html', document.getElementById("default-area"));
+    await addElement('element/navbar.html', document.getElementById("default-area"));
     await waitForElement("#default-area");
 }
 //----------------네비게이션바-2 로드------------------
